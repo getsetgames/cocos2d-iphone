@@ -284,9 +284,9 @@
 		A326BDAF16CC390400B2FAA8 /* wrtarga.c in Sources */ = {isa = PBXBuildFile; fileRef = A326BCFB16CC390400B2FAA8 /* wrtarga.c */; };
 		A326BDB016CC390400B2FAA8 /* mygameswf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A326BCFD16CC390400B2FAA8 /* mygameswf.mm */; };
 		A326BDB216CC3AE700B2FAA8 /* start.swf in Resources */ = {isa = PBXBuildFile; fileRef = A326BDB116CC3AE700B2FAA8 /* start.swf */; };
-		A326BDB716CC5EAB00B2FAA8 /* SWFTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A326BDB616CC5EA900B2FAA8 /* SWFTest.m */; };
-		A33F548016D81E1D009B2C77 /* CCGameSWF_Bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = A33F547D16D81E1D009B2C77 /* CCGameSWF_Bridge.mm */; };
-		A33F548116D81E1D009B2C77 /* CCGameSWF.m in Sources */ = {isa = PBXBuildFile; fileRef = A33F547F16D81E1D009B2C77 /* CCGameSWF.m */; };
+		A3B1ABDA16DC1E6300759766 /* CCGameSWF.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3B1ABD716DC1E6300759766 /* CCGameSWF.mm */; };
+		A3B1ABDB16DC1E6300759766 /* CCSWFNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3B1ABD916DC1E6300759766 /* CCSWFNode.mm */; };
+		A3F6B8A016DC1ED800C28B9A /* menu001.swf in Resources */ = {isa = PBXBuildFile; fileRef = A3F6B89F16DC1ED800C28B9A /* menu001.swf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -808,12 +808,11 @@
 		A326BCFC16CC390400B2FAA8 /* mygameswf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mygameswf.h; sourceTree = "<group>"; };
 		A326BCFD16CC390400B2FAA8 /* mygameswf.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = mygameswf.mm; sourceTree = "<group>"; };
 		A326BDB116CC3AE700B2FAA8 /* start.swf */ = {isa = PBXFileReference; lastKnownFileType = file; name = start.swf; path = Resources/start.swf; sourceTree = "<group>"; };
-		A326BDB516CC5EA700B2FAA8 /* SWFTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWFTest.h; sourceTree = "<group>"; };
-		A326BDB616CC5EA900B2FAA8 /* SWFTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFTest.m; sourceTree = "<group>"; };
-		A33F547C16D81E1D009B2C77 /* CCGameSWF_Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCGameSWF_Bridge.h; sourceTree = "<group>"; };
-		A33F547D16D81E1D009B2C77 /* CCGameSWF_Bridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCGameSWF_Bridge.mm; sourceTree = "<group>"; };
-		A33F547E16D81E1D009B2C77 /* CCGameSWF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCGameSWF.h; sourceTree = "<group>"; };
-		A33F547F16D81E1D009B2C77 /* CCGameSWF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCGameSWF.m; sourceTree = "<group>"; };
+		A3B1ABD616DC1E6300759766 /* CCGameSWF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCGameSWF.h; sourceTree = "<group>"; };
+		A3B1ABD716DC1E6300759766 /* CCGameSWF.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCGameSWF.mm; sourceTree = "<group>"; };
+		A3B1ABD816DC1E6300759766 /* CCSWFNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSWFNode.h; sourceTree = "<group>"; };
+		A3B1ABD916DC1E6300759766 /* CCSWFNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCSWFNode.mm; sourceTree = "<group>"; };
+		A3F6B89F16DC1ED800C28B9A /* menu001.swf */ = {isa = PBXFileReference; lastKnownFileType = file; name = menu001.swf; path = Resources/menu001.swf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -870,7 +869,7 @@
 		A326BA6516CC385400B2FAA8 /* GSGGameSWF */ = {
 			isa = PBXGroup;
 			children = (
-				A33F547A16D81E1D009B2C77 /* CCGameSWF */,
+				A3B1ABD516DC1E6300759766 /* CCGameSWF */,
 				A326BBC616CC390300B2FAA8 /* gameswf */,
 				A326BBB716CC385600B2FAA8 /* AppDelegate.h */,
 				A326BBB816CC385600B2FAA8 /* AppDelegate.m */,
@@ -882,8 +881,6 @@
 				A326BA6616CC385400B2FAA8 /* Resources */,
 				A326BA7A16CC385400B2FAA8 /* libs */,
 				A326BBB316CC385600B2FAA8 /* Supporting Files */,
-				A326BDB516CC5EA700B2FAA8 /* SWFTest.h */,
-				A326BDB616CC5EA900B2FAA8 /* SWFTest.m */,
 			);
 			path = GSGGameSWF;
 			sourceTree = "<group>";
@@ -891,6 +888,7 @@
 		A326BA6616CC385400B2FAA8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A3F6B89F16DC1ED800C28B9A /* menu001.swf */,
 				A326BDB116CC3AE700B2FAA8 /* start.swf */,
 				A326BA6716CC385400B2FAA8 /* Default.png */,
 				A326BA6916CC385400B2FAA8 /* fps_images.png */,
@@ -1538,23 +1536,15 @@
 			path = jpeglib;
 			sourceTree = "<group>";
 		};
-		A33F547A16D81E1D009B2C77 /* CCGameSWF */ = {
+		A3B1ABD516DC1E6300759766 /* CCGameSWF */ = {
 			isa = PBXGroup;
 			children = (
-				A33F547B16D81E1D009B2C77 /* CCCBridge */,
-				A33F547E16D81E1D009B2C77 /* CCGameSWF.h */,
-				A33F547F16D81E1D009B2C77 /* CCGameSWF.m */,
+				A3B1ABD616DC1E6300759766 /* CCGameSWF.h */,
+				A3B1ABD716DC1E6300759766 /* CCGameSWF.mm */,
+				A3B1ABD816DC1E6300759766 /* CCSWFNode.h */,
+				A3B1ABD916DC1E6300759766 /* CCSWFNode.mm */,
 			);
 			path = CCGameSWF;
-			sourceTree = "<group>";
-		};
-		A33F547B16D81E1D009B2C77 /* CCCBridge */ = {
-			isa = PBXGroup;
-			children = (
-				A33F547C16D81E1D009B2C77 /* CCGameSWF_Bridge.h */,
-				A33F547D16D81E1D009B2C77 /* CCGameSWF_Bridge.mm */,
-			);
-			path = CCCBridge;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1620,6 +1610,7 @@
 				A326BD7116CC390400B2FAA8 /* NOTES.txt in Resources */,
 				A326BD7216CC390400B2FAA8 /* TODO in Resources */,
 				A326BDB216CC3AE700B2FAA8 /* start.swf in Resources */,
+				A3F6B8A016DC1ED800C28B9A /* menu001.swf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1886,9 +1877,8 @@
 				A326BDAE16CC390400B2FAA8 /* wrrle.c in Sources */,
 				A326BDAF16CC390400B2FAA8 /* wrtarga.c in Sources */,
 				A326BDB016CC390400B2FAA8 /* mygameswf.mm in Sources */,
-				A326BDB716CC5EAB00B2FAA8 /* SWFTest.m in Sources */,
-				A33F548016D81E1D009B2C77 /* CCGameSWF_Bridge.mm in Sources */,
-				A33F548116D81E1D009B2C77 /* CCGameSWF.m in Sources */,
+				A3B1ABDA16DC1E6300759766 /* CCGameSWF.mm in Sources */,
+				A3B1ABDB16DC1E6300759766 /* CCSWFNode.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

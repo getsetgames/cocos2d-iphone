@@ -999,10 +999,10 @@ struct render_handler_ogles : public gameswf::render_handler
 
 	void begin_submit_mask()
 	{
-        //glColorMask(0, 0, 0, 0);
-		++s_mask_level;
-        //glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
-
+//        glColorMask(0, 0, 0, 0);
+//		++s_mask_level;
+//        glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
+//
 //        /* don't write to color or depth buffer */
 //        glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
 //        glDepthMask(GL_FALSE);
@@ -1021,9 +1021,9 @@ struct render_handler_ogles : public gameswf::render_handler
 	// called after begin_submit_mask and the drawing of mask polygons
 	void end_submit_mask()
 	{
-        glEnable(GL_BLEND);
-        glDisable(GL_DEPTH_TEST);
-        glBlendFunc(GL_DST_COLOR, GL_ZERO);
+//        glEnable(GL_BLEND);
+//        glDisable(GL_DEPTH_TEST);
+//        glBlendFunc(GL_DST_COLOR, GL_ZERO);
 //		// enable framebuffer writes
 //		glColorMask(1, 1, 1, 1);
 //        
@@ -1037,8 +1037,8 @@ struct render_handler_ogles : public gameswf::render_handler
 
 	void disable_mask()
 	{
-        glEnable(GL_DEPTH_TEST);
-        glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+//        glEnable(GL_DEPTH_TEST);
+//        glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 //		assert(m_mask_level > 0);
 //		if (--m_mask_level == 0)
         s_mask_level = 0;

@@ -9,7 +9,7 @@
 
 // Import the interfaces
 #import "HelloWorldLayer.h"
-#import "SWFTest.h"
+#import "CCSWFNode.h"
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
@@ -44,11 +44,13 @@
 	
 		// position the label on the center of the screen
 		label.position =  ccp( size.width /2 , size.height/2 );
-		
-		// add the label as a child to this Layer
-		[self addChild: label];
         
-        [label addChild:[SWFTest node]];
+        CCNode *swf = [CCSWFNode nodeWithSWFFile:[[NSBundle mainBundle] pathForResource:@"menu001" ofType:@"swf"]];
+        [self addChild:swf];
+        swf.position = ccp( size.width /2 , size.height/2 );
+        
+        // add the label as a child to this Layer
+		[self addChild: label];
         
         m_label = label;
 	}
