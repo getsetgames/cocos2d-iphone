@@ -16,6 +16,43 @@
 #import "gameswf_types.h"
 #import "gameswf_impl.h"
 
+@interface CCSWFNode_touchContainer : NSObject
+{
+    CGPoint m_position;
+    int m_state;
+}
+
+@property (readonly) CGPoint position;
+@property (readonly) int state;
+
++(id) touchContainerWithPosition:(CGPoint)position andState:(int)state;
+-(id) initWithPosition:(CGPoint)position andState:(int)state;
+
+@end
+
+@implementation CCSWFNode_touchContainer
+
+@synthesize position = m_position;
+@synthesize state = m_state;
+
++(id) touchContainerWithPosition:(CGPoint)position andState:(int)state
+{
+    return [[CCSWFNode_touchContainer alloc] initWithPosition:position andState:state];
+}
+
+-(id) initWithPosition:(CGPoint)position andState:(int)state
+{
+    self = [super init];
+    if (self)
+    {
+        m_position = position;
+        m_state = state;
+    }
+    return self;
+}
+
+@end
+
 @interface CCSWFNode_imp : NSObject
 {
     @public
@@ -86,6 +123,8 @@
         m_scaleX = 1.0;
         m_scaleY = 1.0;
         
+        m_touchEvents = [[NSMutableArray alloc] init];
+        
         [self setContentSizeInPixels:CGSizeMake(m_movieWidth, m_movieHeight)];
         [self setScale:1.0];
         [self setAnchorPoint:ccp(0.5f, 0.5f)];
@@ -131,42 +170,98 @@
 -(void) dealloc
 {
     [m_movieName release];
+    [m_touchEvents release];
     [super dealloc];
 }
 
 -(void) onEnterTransitionDidFinish
 {
     [self scheduleUpdate];
+    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:YES];
 }
 
 -(void) onExit
 {
     [self unscheduleAllSelectors];
+    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+}
+
+-(CGPoint) getTouchInMovieCoordinates:(UITouch*)touch
+{
+    // find the movie rect in pixels //
+    CGRect movieRect = CGRectMake(
+                                  self.positionInPixels.x - (self.contentSizeInPixels.width * super.scaleX * self.anchorPoint.x),
+                                  self.positionInPixels.y - (self.contentSizeInPixels.height * -super.scaleY * self.anchorPoint.y),
+                                  self.contentSizeInPixels.width * super.scaleX,
+                                  self.contentSizeInPixels.height * -super.scaleY
+                                  );
+    
+    // find the touch position in pixels //
+    CGPoint touchPoint = ccpMult([[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]], CC_CONTENT_SCALE_FACTOR());
+
+    // find the touch position in respect to the movie //
+    CGPoint touchInMovie = ccp(
+                               (touchPoint.x - movieRect.origin.x) / m_scaleX,
+                               ((self.contentSizeInPixels.height * -super.scaleY) - (touchPoint.y - movieRect.origin.y)) / m_scaleY
+                               );
+    
+    return touchInMovie;
+}
+
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    // make rect for movie //
+    CGRect movieRect = CGRectMake(0, 0, (self.contentSizeInPixels.width * super.scaleX), (self.contentSizeInPixels.height * -super.scaleY));
+    // find the touch position in pixels //
+    CGPoint touchPoint = [self getTouchInMovieCoordinates:touch];
+    BOOL isInMovie = CGRectContainsPoint(movieRect, touchPoint);
+    [m_touchEvents addObject:[CCSWFNode_touchContainer touchContainerWithPosition:touchPoint andState:0]];
+    [m_touchEvents addObject:[CCSWFNode_touchContainer touchContainerWithPosition:touchPoint andState:1]];
+    return isInMovie;
+}
+
+- (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    [m_touchEvents addObject:[CCSWFNode_touchContainer touchContainerWithPosition:[self getTouchInMovieCoordinates:touch] andState:1]];
+}
+
+- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    [m_touchEvents addObject:[CCSWFNode_touchContainer touchContainerWithPosition:[self getTouchInMovieCoordinates:touch] andState:0]];
+}
+
+- (void)ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    [m_touchEvents addObject:[CCSWFNode_touchContainer touchContainerWithPosition:[self getTouchInMovieCoordinates:touch] andState:0]];
 }
 
 -(void) update:(ccTime)dt
 {
+    if (m_touchEvents.count)
+    {
+        CCSWFNode_touchContainer *touch = [m_touchEvents objectAtIndex:0];
+        imp->m_movie->notify_mouse_state(touch.position.x, touch.position.y, touch.state);
+        [m_touchEvents removeObjectAtIndex:0];
+        NSLog(@"Touch X: %f Y: %f STATE: %d", touch.position.x, touch.position.y, touch.state);
+    }
     imp->m_movie->advance(dt);
     // TODO: Enable sound //
-    // sound->advance(delta_t);
+    // sound->advance(dt);
 }
 
 -(void) draw
-{	
-	/*if (s_mouse_event.size() > 0)
-	{
-        //	printf("notify= %d %d %d %d\n", s_mouse_event.size(), s_mouse_event[0].m_x, s_mouse_event[0].m_y, s_mouse_event[0].m_state);
-		m->notify_mouse_state(s_mouse_event[0].m_x, s_mouse_event[0].m_y, s_mouse_event[0].m_state);
-		s_mouse_event.remove(0);
-	}*/
-    
+{
     CC_DISABLE_DEFAULT_GL_STATES();
     
     glEnable(GL_BLEND);
     
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
     glDisable(GL_TEXTURE_2D);
     
 	imp->m_movie->display();
+    
+    glBlendFunc(CC_BLEND_SRC, CC_BLEND_DST);
     
     CC_ENABLE_DEFAULT_GL_STATES();
 }

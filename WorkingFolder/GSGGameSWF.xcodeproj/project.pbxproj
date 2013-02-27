@@ -282,8 +282,9 @@
 		A326BDAD16CC390400B2FAA8 /* wrppm.c in Sources */ = {isa = PBXBuildFile; fileRef = A326BCF916CC390400B2FAA8 /* wrppm.c */; };
 		A326BDAE16CC390400B2FAA8 /* wrrle.c in Sources */ = {isa = PBXBuildFile; fileRef = A326BCFA16CC390400B2FAA8 /* wrrle.c */; };
 		A326BDAF16CC390400B2FAA8 /* wrtarga.c in Sources */ = {isa = PBXBuildFile; fileRef = A326BCFB16CC390400B2FAA8 /* wrtarga.c */; };
-		A326BDB016CC390400B2FAA8 /* mygameswf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A326BCFD16CC390400B2FAA8 /* mygameswf.mm */; };
 		A326BDB216CC3AE700B2FAA8 /* start.swf in Resources */ = {isa = PBXBuildFile; fileRef = A326BDB116CC3AE700B2FAA8 /* start.swf */; };
+		A379E43D16DE6EB50098D759 /* menu002.swf in Resources */ = {isa = PBXBuildFile; fileRef = A379E43C16DE6EB50098D759 /* menu002.swf */; };
+		A379E69A16DEB5CA0098D759 /* Mega-Run_UI.swf in Resources */ = {isa = PBXBuildFile; fileRef = A379E69916DEB5CA0098D759 /* Mega-Run_UI.swf */; };
 		A3B1ABDA16DC1E6300759766 /* CCGameSWF.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3B1ABD716DC1E6300759766 /* CCGameSWF.mm */; };
 		A3B1ABDB16DC1E6300759766 /* CCSWFNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3B1ABD916DC1E6300759766 /* CCSWFNode.mm */; };
 		A3F6B8A016DC1ED800C28B9A /* menu001.swf in Resources */ = {isa = PBXBuildFile; fileRef = A3F6B89F16DC1ED800C28B9A /* menu001.swf */; };
@@ -805,9 +806,9 @@
 		A326BCF916CC390400B2FAA8 /* wrppm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wrppm.c; sourceTree = "<group>"; };
 		A326BCFA16CC390400B2FAA8 /* wrrle.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wrrle.c; sourceTree = "<group>"; };
 		A326BCFB16CC390400B2FAA8 /* wrtarga.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wrtarga.c; sourceTree = "<group>"; };
-		A326BCFC16CC390400B2FAA8 /* mygameswf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mygameswf.h; sourceTree = "<group>"; };
-		A326BCFD16CC390400B2FAA8 /* mygameswf.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = mygameswf.mm; sourceTree = "<group>"; };
 		A326BDB116CC3AE700B2FAA8 /* start.swf */ = {isa = PBXFileReference; lastKnownFileType = file; name = start.swf; path = Resources/start.swf; sourceTree = "<group>"; };
+		A379E43C16DE6EB50098D759 /* menu002.swf */ = {isa = PBXFileReference; lastKnownFileType = file; name = menu002.swf; path = Resources/menu002.swf; sourceTree = "<group>"; };
+		A379E69916DEB5CA0098D759 /* Mega-Run_UI.swf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Mega-Run_UI.swf"; path = "Resources/Mega-Run_UI.swf"; sourceTree = "<group>"; };
 		A3B1ABD616DC1E6300759766 /* CCGameSWF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCGameSWF.h; sourceTree = "<group>"; };
 		A3B1ABD716DC1E6300759766 /* CCGameSWF.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCGameSWF.mm; sourceTree = "<group>"; };
 		A3B1ABD816DC1E6300759766 /* CCSWFNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSWFNode.h; sourceTree = "<group>"; };
@@ -888,6 +889,8 @@
 		A326BA6616CC385400B2FAA8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A379E69916DEB5CA0098D759 /* Mega-Run_UI.swf */,
+				A379E43C16DE6EB50098D759 /* menu002.swf */,
 				A3F6B89F16DC1ED800C28B9A /* menu001.swf */,
 				A326BDB116CC3AE700B2FAA8 /* start.swf */,
 				A326BA6716CC385400B2FAA8 /* Default.png */,
@@ -1222,8 +1225,6 @@
 				A326BBC716CC390300B2FAA8 /* base */,
 				A326BCB116CC390400B2FAA8 /* jpeglib */,
 				A326BC1216CC390300B2FAA8 /* compatibility_include.h */,
-				A326BCFC16CC390400B2FAA8 /* mygameswf.h */,
-				A326BCFD16CC390400B2FAA8 /* mygameswf.mm */,
 			);
 			path = gameswf;
 			sourceTree = "<group>";
@@ -1611,6 +1612,8 @@
 				A326BD7216CC390400B2FAA8 /* TODO in Resources */,
 				A326BDB216CC3AE700B2FAA8 /* start.swf in Resources */,
 				A3F6B8A016DC1ED800C28B9A /* menu001.swf in Resources */,
+				A379E43D16DE6EB50098D759 /* menu002.swf in Resources */,
+				A379E69A16DEB5CA0098D759 /* Mega-Run_UI.swf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1876,7 +1879,6 @@
 				A326BDAD16CC390400B2FAA8 /* wrppm.c in Sources */,
 				A326BDAE16CC390400B2FAA8 /* wrrle.c in Sources */,
 				A326BDAF16CC390400B2FAA8 /* wrtarga.c in Sources */,
-				A326BDB016CC390400B2FAA8 /* mygameswf.mm in Sources */,
 				A3B1ABDA16DC1E6300759766 /* CCGameSWF.mm in Sources */,
 				A3B1ABDB16DC1E6300759766 /* CCSWFNode.mm in Sources */,
 			);

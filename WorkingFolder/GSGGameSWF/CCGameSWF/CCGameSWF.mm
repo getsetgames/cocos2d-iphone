@@ -229,7 +229,7 @@ tu_file* CCGameSWF_file_opener (const char* url_or_path)
 
 static void CCGameSWF_log_handler (bool error, const char* message)
 {
-    NSLog(@"%@: %s", (error ? @"ERROR" : @"WARNING"), message);
+    NSLog(@"%@: %s", (error ? @"::ERROR: " : @":::: "), message);
 }
 
 
